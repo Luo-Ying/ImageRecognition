@@ -1,0 +1,5 @@
+Pillow==10.0.1
+Pillow==10.1.0
+setuptools==69.0.2
+setuptools==56.0.0
+tensorflow_gpu==2.6.5
