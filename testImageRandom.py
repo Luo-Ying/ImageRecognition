@@ -29,7 +29,8 @@ def load_and_process_from_path_label(image_path):
     image = tf.io.read_file(image_path) # 读取图像文件
     image = tf.image.decode_jpeg(image,channels=3)  # 将JPEG图像解码为具有3个通道（RGB）的张量
     image = tf.image.resize(image,[128,128])  # 将图像调整大小为（256, 256）
-    image = image/255.0    # 将像素值归一化到范围[0, 1]
+    image = tf.image.rgb_to_grayscale(image)
+    image = image/255.0
     return image
 
 def handle_image_gave(file_path):
