@@ -9,8 +9,8 @@ from dataPreprocessing import handle_dataset
 from testImageRandom import handle_image_gave
 
 # from model_CNN import save_and_train_model   
-from model_MLP import save_and_train_model
-# from model_ResNet50 import save_and_train_model
+# from model_MLP import save_and_train_model
+from model_ResNet50 import save_and_train_model
 # from model_VGG16 import save_and_train_model
  
 print("lol")
@@ -22,7 +22,9 @@ seed = 42
 
 log_dir_base = "logs_train_model/"
 
-model_path = "saved_models/model_MLP"
+# model_path = "saved_models/model_CNN"
+# model_path = "saved_models/model_MLP"
+model_path = "saved_models/model_Resnet50"
 
 image_to_predict = "./test_images_random/FU-ringworm-1.jpeg"
 

@@ -50,9 +50,9 @@ def load_and_process_from_path_label(image_path,image_label):
     print(image_path)
     image = tf.io.read_file(image_path)
     image = tf.image.decode_jpeg(image,channels=3)
-    image = tf.image.resize(image,[128,128])
-    # Décommenter cette ligne pour le model CNN et MLP
-    image = tf.image.rgb_to_grayscale(image)
+    # image = tf.image.resize(image,[128,128])
+    image = tf.image.resize(image,[224,224])    # ResNet50
+    # image = tf.image.rgb_to_grayscale(image)    # Décommenter cette ligne pour le model CNN et MLP
     image = image/255.0
     return image,image_label
 
