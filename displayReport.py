@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay, precision_score
 
 def display_report(dataset, model, typeModel, typeData):
     print("Classification report ", typeData, ":")
@@ -24,6 +23,7 @@ def display_report(dataset, model, typeModel, typeData):
     display_confusing_matrix(label_true, y_pred, typeModel, typeData)
     
 def display_confusing_matrix(label_true, y_pred, typeModel, typeData):
+    precision_score(label_true, y_pred, average=None, zero_division=np.nan)
     cm = confusion_matrix(label_true, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm)
     disp.plot()
