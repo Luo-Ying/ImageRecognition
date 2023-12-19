@@ -8,9 +8,10 @@ from tensorflow.python.client import device_lib
 from dataPreprocessing import handle_dataset
 from testImageRandom import handle_image_gave
 
-from model_CNN import save_and_train_model   
+'''Choix de model import'''
+# from model_CNN import save_and_train_model   
 # from model_MLP import save_and_train_model
-# from model_ResNet50 import save_and_train_model
+from model_ResNet50 import save_and_train_model
 # from model_VGG16 import save_and_train_model
  
 print("lol")
@@ -22,9 +23,10 @@ seed = 42
 
 log_dir_base = "logs_train_model/"
 
-model_path = "saved_models/model_CNN"
+'''Choix de model'''
+# model_path = "saved_models/model_CNN"
 # model_path = "saved_models/model_MLP"
-# model_path = "saved_models/model_Resnet50"
+model_path = "saved_models/model_Resnet50"
 # model_path = "saved_models/model_VGG16"
 
 image_to_predict = "./test_images_random/FU-ringworm-1.jpeg"
@@ -35,7 +37,11 @@ def train():
     validation_dataset = handle_dataset(dataset_path + 'validation_set/', BATCH_SIZE, seed)
     test_dataset = handle_dataset(dataset_path + 'test_set/', BATCH_SIZE, seed)
     
+    '''
+    Donner une variable booléen d'entrée = True de plus pour le model ResNet50 et VGG16 si on prend un model pré-entrainné
+    '''
     save_and_train_model(model_path, log_dir_base, train_dataset, validation_dataset, test_dataset)
+    # save_and_train_model(model_path, log_dir_base, train_dataset, validation_dataset, test_dataset, True)
     
 def predict():
     
